@@ -28,14 +28,14 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "6000:6000"
     environment:
       - PORT=5000
       - CORS_ORIGIN=${CORS_ORIGIN}
       - UPSTASH_REDIS_REST_URL=${UPSTASH_REDIS_REST_URL}
 
   caddy:
-    image: caddy/caddy:2.7.3-alpine
+    image: arm64v8/caddy:2.8.1
     container_name: caddy-server
     restart: unless-stopped
     ports:

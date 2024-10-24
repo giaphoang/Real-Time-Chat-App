@@ -22,8 +22,16 @@ if (!UPSTASH_REDIS_REST_URL) {
   process.exit(1);
 }
 
-const publisher = new Redis(UPSTASH_REDIS_REST_URL);
-const subscriber = new Redis(UPSTASH_REDIS_REST_URL);
+const publisher = new Redis(UPSTASH_REDIS_REST_URL, {
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+const subscriber = new Redis(UPSTASH_REDIS_REST_URL, {
+  tls: {
+    rejectUnauthorized: false
+  }
+});
 
 let connectedClients = 0;
 
