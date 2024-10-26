@@ -35,7 +35,7 @@ services:
       - UPSTASH_REDIS_REST_URL=${UPSTASH_REDIS_REST_URL}
 
   caddy:
-    image: arm64v8/caddy:2.8.1
+    image: caddy/caddy:2.7.3-alpine
     container_name: caddy-server
     restart: unless-stopped
     ports:
