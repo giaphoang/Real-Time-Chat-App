@@ -23,11 +23,11 @@ jobs:
           username: ${{secrets.DROPLET_USER}}
           key: ${{secrets.DROPLET_PRIVATE_KEY}}
           script_stop: true
-          script:
+          script: |
             export UPTASH_REDIS_REST_URL=${{secrets.UPSTASH_REDIS_REST_URL}}
             export CORS_ORIGIN=${{secrets.CORS_ORIGIN}}
             cd Real-Time-Chat-App
-            cd server
             git pull
+            cd server
             docker-compose down
             docker-compose --project-name fullstack-chat up -d --build
